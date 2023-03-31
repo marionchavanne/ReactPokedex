@@ -1,13 +1,22 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-const PokemonCard = ({card}) => {
-  console.log(card);
-  return (
+
+const PokemonCard = ({card, setPokemonIndex, pokemonIndex}) => {
+  const handleIncrement = () => {
+    setPokemonIndex(pokemonIndex + 1)
+  } 
+  const handleDecrement = () => { 
+    setPokemonIndex(pokemonIndex - 1) 
+ }
+
+ return (
    <figure className={"PokemonCard"}>
       {card.imgSrc ? <img src={card.imgSrc}/> : <p> "???" </p> }
       <figcaption>{card.name}</figcaption>
-   </figure>
+      <button onClick ={handleDecrement}>Précédent</button>
+      <button onClick ={handleIncrement}>Suivant</button>
+  </figure>
   );
 }; 
 
@@ -20,3 +29,4 @@ PokemonCard.propTypes = {
     imgSrc: PropTypes.string,
   }).isRequired,
 };
+
