@@ -1,11 +1,12 @@
 import './App.css'
 import PokemonCard from './components/PokemonCard'
+import NavBar from './components/NavBar'
 import { useState } from "react";
 
 function App() {
   
   const [pokemonIndex, setPokemonIndex] = useState(0);
-   
+
   const pokemonList = [
     {
         name: "Bulbizarre",
@@ -34,9 +35,10 @@ function App() {
 
   return (
     <figure className="App">
-      <PokemonCard card={pokemonList[pokemonIndex]} setPokemonIndex={setPokemonIndex} pokemonIndex={pokemonIndex}/>    
+      <PokemonCard card={pokemonList[pokemonIndex]} setPokemonIndex={setPokemonIndex} pokemonIndex={pokemonIndex}/>  
+      <NavBar pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex} pokemonList={pokemonList} />
     </figure>
   )
-}
+  }
 
 export default App
